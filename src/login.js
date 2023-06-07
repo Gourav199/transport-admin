@@ -1,6 +1,6 @@
 import React from 'react';
 import "./css/style.css";
-export default function () {
+export default function Login () {
   return (
     <div>
         <div class="container">

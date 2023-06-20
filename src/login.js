@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import "./css/style.css";
-import axios from "axios";
 import { useHistory } from 'react-router-dom';
 
 export default function Login () {

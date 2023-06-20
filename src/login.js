@@ -9,14 +9,7 @@ export default function Login () {
 	const history = useHistory();
   
 	const handleLogin = async () => {
-		// setError('');
-	
-		// try {
-		//   const response = await axios.post('/login', { username, password });
-		//   console.log(response.data.message); // Display success message
-		// } catch (error) {
-		//   setError(error.response.data.error); // Display error message
-		// }
+		
 		if(username === 'admin' && password === 'admin') {
 			history.push('/dashboard');
 		}
@@ -78,7 +71,6 @@ export default function Login () {
 				
 			</div>
           </form>
-			{error && <p>{error}</p>}
 			
 		</div>
 		<div className="screen__background">

@@ -1,51 +1,86 @@
 import React, { useState } from 'react';
 import "./css/style.css";
-import { useHistory } from 'react-router-dom';
-
+import axios from "axios";
 export default function Login () {
-   const [email, setemail] = useState("");
-   const [password, setpassword] = useState("");
-   const history = useHistory();
-
-   function userName(event) {
-      setemail(event.target.value)
-      //alert(email)
-   }
-   function userPassword(event) {
-      setpassword(event.target.value)
-      //alert(password)
-   }
-   function submit (){
-     if(email === 'admin' && password === 'admin'){
-      history.push('/dashboard');
-     }
-   }
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
+	const [error, setError] = useState('');
+  
+	const handleLogin = async () => {
+		setError('');
+	
+		try {
+		  const response = await axios.post('/login', { username, password });
+		  console.log(response.data.message); // Display success message
+		} catch (error) {
+		  setError(error.response.data.error); // Display error message
+		}
+	};
+   
   return (
     <div>
-        <div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email" onChange={userName} />
+        <div className="container">
+	<div className="screen">
+		<div className="screen__content">
+			{/* <form className="login" onSubmit={handleLogin}>
+				<div className="login__field">
+					<i className="login__icon fas fa-user"></i>
+					<input type="text" className="login__input" placeholder="User name / Email" onChange={e => setUsername(e.target.value)}   name='username'/>
 				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password"  onChange={userPassword}/>
+				<div className="login__field">
+					<i className="login__icon fas fa-lock"></i>
+					<input type="password" className="login__input" placeholder="Password" onChange={e => setPassword(e.target.value)}name='password'/>
 				</div>
-				<button class="button login__submit" onClick={submit}>
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
+				<button className="button login__submit" >
+					<span className="button__text">Log In Now</span>
+					<i className="button__icon fas fa-chevron-right"></i>
 				</button>				
-			</form>
+			</form> */}
+			<form onSubmit={handleLogin}>
+				<div class="form-group">
+				<label for="name" class="form-name">Username</label>
+				<div class="row">
+					<div class="col-11">
+						<input type="text" class="form-control frm-width" id="name" placeholder="Enter your name" onChange={e => setUsername(e.target.value)}   name='username'/>
+					</div>
+					<div class="col-1">
+						<i class="far fa-user-circle"></i>
+					</div>
+				</div>
+				
+				</div>
+				
+				<div class="form-group">
+					<label for="password" class="form-name">Password</label>
+					<div class="row">
+						<div class="col-11">
+						<input type="password" class="form-control frm-width" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}name='password'/>
+						</div>
+						<div class="col-1">
+						<i class="fa fa-lock white-color"></i>
+						</div>
+					</div>
+				
+				</div>
+				
+				
+				<div class="form-group">
+					<button type="submit" class="btn  btn-style">Log in</button>
+				</div>
+           
+            
+				<div class="form-group pt-3 text-center">
+				
+			</div>
+          </form>
+			{error && <p>{error}</p>}
 			
 		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
+		<div className="screen__background">
+			<span className="screen__background__shape screen__background__shape4"></span>
+			<span className="screen__background__shape screen__background__shape3"></span>		
+			<span className="screen__background__shape screen__background__shape2"></span>
+			<span className="screen__background__shape screen__background__shape1"></span>
 		</div>		
 	</div>
 </div>

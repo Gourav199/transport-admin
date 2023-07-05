@@ -1,6 +1,30 @@
-
+.body{
+  background-color: #004d66;
+}
 .heading {
     background-color: black;
     color: white;
     padding: 20px;
+}
+
+.text-img{
+  width: 201px;
+  margin-left: 448px;
+  margin-top: 30px;
+}
+.color-text{
+  color:white
+}
+.form-design{
+  margin-left: 255px;
+}
+@media only screen and (max-width: 600px) {
+  .text-img{
+      width: 201px;
+      margin-left: 90px !important;
+      margin-top: 30px;
   }
+  .form-design{
+      margin-left: 0px
+  }
+}

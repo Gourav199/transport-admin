@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Viewlr from './Viewlr';
 import RegistrationLrForm from './RegistrationLrForm';
 import ChangeStatus from './ChangeStatus';
+import Checklrstatus from './Checklrstatus';
 
 function App() {
   
@@ -20,6 +21,7 @@ function App() {
         <Route path="/lr-entry" component={RegistrationLrForm} />
         <Route path="/view-lr" component={Viewlr} />
         <Route path="/change-status" component={ChangeStatus} />
+        <Route path='/check-lr-status' component={Checklrstatus} />
       </Switch>
     </Router>
     </div>

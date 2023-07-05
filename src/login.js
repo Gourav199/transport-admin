@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import "./css/style.css";
+import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 
 export default function Login () {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const history = useHistory();
-  
-	const handleLogin = async () => {
-		
-		if(username === 'admin' && password === 'admin') {
+	const handleLogin =  (event) => {
+		event.preventDefault()
+		axios.post('http://localhost:5000/login', {username, password}).then(res => 
+		{
 			history.push('/dashboard');
 		}
+		).catch(err =>console.log(err))
 	};
    
   return (

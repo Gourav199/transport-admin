@@ -12,6 +12,9 @@ export default function Dashboard() {
   const handleButtonClickChangeStatus = () => {
 	window.open('/change-status', '_blank');
   };
+  const handleCheckLrStatus =() =>{
+	window.open('/check-lr-status');
+  }
   return (
 	<div className='container-fluid'>
 		<div className="row mt-5 pt-5">
@@ -23,7 +26,7 @@ export default function Dashboard() {
 			<button className="btn btn-primary btn-block button" onClick={handleButtonClick}>Generate LR</button>
 			</div>
 			<div className="col-lg-3 col-md-6 mb-3">
-			<button className="btn btn-primary btn-block button">Check Lr Status</button>
+			<button className="btn btn-primary btn-block button" onClick={handleCheckLrStatus}>Check Lr Status</button>
 			</div>
 			<div className="col-lg-3 col-md-6 mb-3">
 			<button className="btn btn-primary btn-block button"  onClick={handleButtonClickVIewLR}>View LR</button>
